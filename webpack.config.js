@@ -4,15 +4,20 @@ const port = 3000;
 
 module.exports = {
     mode: 'development',
-    entry: './front/react.js',
+    entry: './front/app/react.js',
     output: {
         path: path.join(__dirname,'./dist'),
         filename: 'bundle.js',
         // 덮어씌우기 기능 추가
-        clean: true
+        clean: true,
+        publicPath:'/'
     },
     resolve: {
         extensions: ['.js','.jsx'],
+        // 별명 경로 설정
+        alias: {
+            resource: path.resolve('./resource'),
+        }
     },
     module: {
         rules: [
@@ -29,6 +34,12 @@ module.exports = {
                     loader: 'html-loader',
                     options: {minimize: true}
                 }
+            },
+            {
+                test: /\.ttf$/,
+                use: {
+                    loader: 'file-loader'
+                }
             }
         ]
     },
@@ -44,5 +55,8 @@ module.exports = {
     devServer: {
         host: 'localhost',
         port: port,
+        hot: true,
+        // 일렉트론 리로드시 publicPath 통해서 실행
+        historyApiFallback: true,
     }
 }
