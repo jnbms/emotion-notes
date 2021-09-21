@@ -7,7 +7,8 @@ const width = props => ({width:props.width});
 
 // EXTENDS
 const contain = styled.div`
-    height: 100%; width: 100%;
+    height: ${props => !props.height ? "100%" : props.height};
+    width: ${props => !props.width ? "100%" : props.witdh};
 `
 
 const Column = styled(contain)`

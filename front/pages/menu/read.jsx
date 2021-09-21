@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Column, Size, ButtonStyle, Center} from '../../components/styles/common/common';
+import {Column, Size, ButtonStyle, Center, Space} from '../../components/styles/common/common';
 import {Text} from '../../components/atoms/bone/text';
 import { 
     ButtonHoverAnimation,
     ButtonHoverTransition,
+    TextHoverColor,
   } from '../../components/styles/animation/animation';
   
 function Menu() {
@@ -46,7 +47,9 @@ function Menu() {
             </Size>
 
           <Link to="/">
-            <Text size="0.8" content="PREV" style={{color:'blue'}}/>  
+            <TextHoverColor hoverColor="blue">
+              <Text size="0.8" content="PREV"/>
+            </TextHoverColor>  
           </Link>
           
           {/* <div onClick={toggleModal}>CLICK</div>

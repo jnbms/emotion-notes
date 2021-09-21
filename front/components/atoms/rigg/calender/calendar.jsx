@@ -6,6 +6,7 @@ import { Column } from "../../../styles/common/common";
 // import styles from './calendar.module.scss';
 import Box from '../../bone/box';
 import {HoverButton} from "../../bone/Button/button";
+import { Text } from "../../bone/text";
 
 function Calendar(props){
     const {getDay} = props;
@@ -35,9 +36,9 @@ function Calendar(props){
     return (
         <Column jutify="center" gap="0.2">
             <Line>
-                <HoverButton content="◀" color="#333333" hoverColor="#9999" onClick={prevMonth}/>
-                <div>{month}월</div>
-                <HoverButton content="▶" color="#333333" hoverColor="#9999" onClick={nextMonth}/>
+                <HoverButton content="◁" hoverColor="blue" onClick={prevMonth}/>
+                <Text content={`${month}월`}/>
+                <HoverButton content="▷" hoverColor="blue" onClick={nextMonth}/>
             </Line>
             <Table>
                 {weeks.map((week)=>{return <Box key={week} color="week">{week}</Box>})}

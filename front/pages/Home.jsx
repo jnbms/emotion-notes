@@ -8,7 +8,6 @@ import {
 } from '../components/styles/animation/animation';
 
 function home(){
-  
   return (
     <Size height="100vh">
           <Column align="center" justify="center">

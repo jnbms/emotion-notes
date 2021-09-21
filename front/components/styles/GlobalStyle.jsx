@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
         user-select: none;
         color: ${globalColor};
 
+        //DARK MODE
+        /* color: #424242; */
+        /* background-color: black; */
     }
     a{
         /* width:100%; height:100%; */
@@ -20,6 +23,15 @@ const GlobalStyle = createGlobalStyle`
     }
     ::-webkit-scrollbar{
     display: none;
+    }
+
+    textarea{
+        resize: none;
+        outline: none;
+        font-family: basic;
+        font-size: 24px;
+
+
     }
 `
 export default GlobalStyle;

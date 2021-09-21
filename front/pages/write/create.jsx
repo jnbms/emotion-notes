@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
-import SettringBar from "../../components/atoms/rigg/settingbar";
-// import Input from "../components/atoms/input/input";
-// import Button from "../components/atoms/button/button";
+import {SettingBar} from "../../components/atoms/rigg/settingbar";
+import TextArea from "../../components/atoms/rigg/textarea";
 import {Center, Column, Size, Space} from "../../components/styles/common/common";
 
 function create(){
@@ -11,7 +10,7 @@ function create(){
     const waterTap = [
         {   
             question: "사건 기록",
-            description : "겪었던 그 상황을 육하원칙에 따라 객관적으로 작성해보세요"
+            description : "겪었던 그 상황을 육하원칙에 따라 객관적으로 작성해보세요."
         },
         {   
             question: "내 감정을 자세하게 적어보기",
@@ -48,17 +47,16 @@ function create(){
     return <Size height="100vh">
         <Column align="center">
             <Size width="80%">
-                    {/* <Column justify="center" align="center" style={{gap:20}}> */}
-                        {/* <Space margin="0.4"/> */}
-                        {/* <Input question={waterTap[0].question} description={waterTap[0].description}/> */}
-                        {/* <Input question={waterTap[1].question} description={waterTap[1].description}/> */}
-                        {/* <Input question={waterTap[2].question} description={waterTap[2].description}/> */}
-                        {/* <Input question={waterTap[3].question} description={waterTap[3].description}/> */}
-                        {/* <Input question={waterTap[4].question} description={waterTap[4].description}/> */}
-                        {/* <Space margin="0.4"/> */}
-                        HELLO
-                    {/* </Column> */}
-                <SettringBar prevUrl="/write/read" nextUrl=""/>
+                    <Column justify="center" align="center" gap="2.5">
+                        <Space margin="0"/>
+                        <TextArea question={waterTap[0].question} description={waterTap[0].description}/>
+                        <TextArea question={waterTap[1].question} description={waterTap[1].description}/>
+                        <TextArea question={waterTap[2].question} description={waterTap[2].description}/>
+                        <TextArea question={waterTap[3].question} description={waterTap[3].description}/>
+                        <TextArea question={waterTap[4].question} description={waterTap[4].description}/>
+                        <Space margin="0"/>
+                    </Column>
+                <SettingBar prevUrl="/write/read" nextUrl=""/>
             </Size>
         </Column>
     </Size>

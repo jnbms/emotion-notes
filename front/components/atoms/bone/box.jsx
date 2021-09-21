@@ -9,7 +9,9 @@ const BoxStyle = styled.div`
     border-radius: ${boxRadius};
     height: ${boxSize}; width: ${boxSize};
     background: repeating-linear-gradient(45deg, rgb(230, 230, 230) 1px, rgba(255, 255, 255, 0) 5px);
-    /* @include center(); */
+    display: grid;
+    place-items: center;
+
     &:hover{ background-color: rgb(245, 245, 245);}
     &:active{
         background: repeating-linear-gradient(45deg, rgb(187, 223, 252) 1px, rgba(255, 255, 255, 0) 5px);

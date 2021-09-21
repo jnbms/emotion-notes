@@ -9,13 +9,13 @@ import writeCreate from '../pages/write/create';
 
 function Router(){
   return <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={home}/>
-      <Route exact path='/menu/read' component={read}/>
-      <Route exact path='/menu/create' component={create}/>
-      <Route exact path='/write/read' component={writeRead}/>
-      <Route exact path='/write/create' component={writeCreate}/>
-    </Switch>
+      <Switch>
+        <Route exact path='/' component={home}/>
+        <Route exact path='/menu/read' component={read}/>
+        <Route exact path='/menu/create' component={create}/>
+        <Route exact path='/write/read' component={writeRead}/>
+        <Route exact path='/write/create' component={writeCreate}/>
+      </Switch>
   </BrowserRouter>
 }
 export default Router;

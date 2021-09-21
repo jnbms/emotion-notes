@@ -5,8 +5,10 @@ import {Link} from 'react-router-dom';
 import { Column, Row, Size, Center, ButtonStyle} from '../../components/styles/common/common';
 import {Text} from '../../components/atoms/bone/text';
 import useInput from '../../hooks/useInput';
+import {SettingBar2, SettringBar} from '../../components/atoms/rigg/settingbar';
 import { ButtonHoverScale } from '../../components/styles/animation/animation';
-import SettringBar from '../../components/atoms/rigg/settingbar';
+import Input from '../../components/atoms/bone/input';
+
 
 export default function Createmenu() {
 
@@ -32,44 +34,22 @@ export default function Createmenu() {
     return (
         <Size height="100vh">
            <Center>
-                <Size width="50%" height="40%">
-                     <Column justify="center" align="center" style={{gap:8}}>
+                <Size width="50%" height="50%">
+                     <Column justify="center" align="center" gap="1">
                          
-                        <Column align="flex-start" style={{gap:4}}>
+                        <Column align="flex-start" gap="0.5">
                             <Text size="1.1" content="제목."/>
-                            {/* <Textarea {...title}></Textarea> */}
+                                <Input maxLength="50" height="2" {...title}></Input>
                         </Column>
 
-                        <Column align="flex-start" style={{gap:4}}>
+                        <Column align="flex-start" gap="0.5">
                         <Text size="1.1" content="설명."/>
-                            {/* <Textarea {...subtitle}></Textarea> */}
+                            <Input maxLength="100" height="4" {...subtitle}></Input>
                         </Column>
 
                     {/* PAGE에 바로 오지 않고 molecules로 제작하여 가져오도록 수정. */}
-                    {/*                    
-                    <Size height="" width="100%">
-                        <Row justify="space-evenly" className="buttonGroupHoverScale">
-                            <ButtonHoverScale>
-                                <Link to="/menu/read"><Text size="0.8" content="◁ 이전"/></Link>
-                            </ButtonHoverScale>
-                            <ButtonHoverScale>
-                                <Text size="0.8" content="💾저장"/>
-                            </ButtonHoverScale>
-                            <ButtonHoverScale>
-                                <Text size="0.8" content="⚙️ 설정"/>
-                            </ButtonHoverScale>
-                            <ButtonHoverScale>
-                                <Text size="0.8" content="추가 ▷"/>
-                            </ButtonHoverScale>
-                        </Row>
-                    </Size> */}
-                    <SettringBar prevUrl="/menu/read"/>
-
-                    {/* <Row>
-                        <Link href="/menu">
-                            <Text size="0.8" content="PREV" style={{color:"blue"}}/>
-                        </Link>
-                    </Row> */}
+                    {/* <SettringBar prevUrl="/menu/read"/> */}
+                    <SettingBar2/>
                 </Column>
               </Size>
             </Center>

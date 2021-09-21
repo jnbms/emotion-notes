@@ -50,5 +50,5 @@ sequelize.models.user.create({name:name,age:age})
 
 // SELECT
 sequelize.models.user.findAll()
-    .then(result=>res.json(result))
-    .then(res=>console.log(res));
+    .then(result=>console.log(result))
+    // .then(res=>console.log(res));
