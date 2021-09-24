@@ -1,5 +1,5 @@
 console.log("preload is running.");
-const {addTable, readTable, removeTable} = require('../data/sqlite3');
+// const {addTable, readTable, removeTable} = require('../data/database/db.db');
 // const {ipcRenderer} = require('electron');
 
 // 콘텍스트 격리 사용의 경우
@@ -12,7 +12,6 @@ const {addTable, readTable, removeTable} = require('../data/sqlite3');
 window.API = {
     addTable: (id,name) => addTable(id,name),
 }
-
 window.data = {
     list : {},
 }

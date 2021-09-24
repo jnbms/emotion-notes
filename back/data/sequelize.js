@@ -6,32 +6,37 @@ const sequelize = new Sequelize({
 });
 
 // MODEL(테이블) 정의(없는 경우, 생성)
-const user = sequelize.define('user',{
+const table = sequelize.define('table',{
+    id:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrementIdentity: true,
+    },
     name:{
         type: DataTypes.STRING,
-        primaryKey: true,
-    },
-    age:{
-        type: DataTypes.INTEGER,
     },
 });
-// // console.log(user === sequelize.models.user); //TRUE
+console.log(table === sequelize.models.table); //TRUE
 
 // CONNECTION
 // 실행 시 연결된 DB파일에 테이블이 생성된다.
-// sequelize.sync()
-//     .then(()=>{
-//         console.log('DB connection success.');
-//     })
-//     .catch(err=>{
-//         console.error(err);
-//     })
+sequelize.sync()
+    .then(()=>{
+        console.log('DB connection success.');
+    })
+    .catch(err=>{
+        console.error(err);
+    })
 
 // INSERT
-
-function insert(name,age){
-sequelize.models.user.create({name:name,age:age})
-    .then(result=>{res.json(result)})
+// function insert(name,age){
+// sequelize.models.user.create({name:name,age:age})
+//     .then(result=>{res.json(result)})
+//     .catch(err=>console.log(err));
+// }
+function insert(name){
+sequelize.models.table.create({name:name})
+    .then(result=>{console.log(result)})
     .catch(err=>console.log(err));
 }
 
@@ -41,14 +46,16 @@ sequelize.models.user.create({name:name,age:age})
 
 
 // UPDATE
-// sequelize.models.user.update({age:20},{where:{name:'dahyun'}})
+sequelize.models.table.update({name:'BEOM'},{where:{id:1}})
 //     .then(()=>{console.log('YESS!')})
 //     .catch((err)=>{console.log(err)});
 
 // DELETE
-// sequelize.models.user.destroy({where:{age:24}});
+// sequelize.models.table.destroy({restartIdentity:true,where:{id:2}});
 
 // SELECT
-sequelize.models.user.findAll()
-    .then(result=>console.log(result))
+// sequelize.models.user.findAll()
+    // .then(result=>console.log(result))
     // .then(res=>console.log(res));
+
+// insert("June");

@@ -1,6 +1,9 @@
 const path = require('path');
-const {app, BrowserWindow, webContents, ipcMain, Notification, globalShortcut} = require('electron');
-const reload = require('electron-reload');
+const {app, BrowserWindow, webContents, ipcMain, dialog, globalShortcut} = require('electron');
+
+// require('electron-reload')(__dirname,{
+//     electron: path.join(__driname,'node_modules','.bin','electron')
+// })
 
 let window;
 app.on('ready',()=>{
@@ -31,8 +34,23 @@ app.on('ready',()=>{
     })
 
     // 송신 - BACKEND CONSOLE
-    ipcMain.on('connect',(event,message)=>{console.log(message);
-    new Notification({title:"JUNE IS",body:"SO SEXY"}).show();
+    ipcMain.on('sendPopup',(event,message)=>{
+        dialog.showMessageBox(
+            // options
+            {
+            type: "question",
+            title: message.title,
+            detail: message.detail,
+            buttons: message.buttons,
+            defaultId: 0,
+            cancelId: 1
+            })
+            .then((res)=>{
+                //확인 : 0, 취소 : 1
+                event.sender.send('receivePopup',res.response);
+            }
+    )
+    // new Notification({title:"JUNE IS",body:"SO SEXY"}).show();
     });
 });
 // app.on('activate',()=>{});
