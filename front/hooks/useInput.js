@@ -6,6 +6,6 @@ const useInput = initalValue => {
         const {target:{value}} = event;
         setValue(value);
     }
-    return {value, onChange};
+    return {value, onChange, setValue};
 }
 export default useInput;

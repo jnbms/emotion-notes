@@ -17,20 +17,30 @@ function SettingBar(props){
     );
 }
 function SettingBar2(props){
-    return  <Row justify="center" gap="2">
+    const {prev, next} = props;
+    return  <Row justify="space-around" gap="2">
             <ButtonHoverScale>
-                <Link to="/menu/read">
-                    <Text size="0.8" content="◁ 이전"/>
-                </Link>
+                <Text
+                size="0.8"
+                content="◁ 이전"
+                onClick={prev}
+                />
             </ButtonHoverScale>
             <ButtonHoverScale>
-                <Text size="0.8" content="💾저장"/>
+                <Text
+                size="0.8"
+                content="💾저장"
+                />
             </ButtonHoverScale>
-            <ButtonHoverScale>
+            {/* <ButtonHoverScale>
                 <Text size="0.8" content="⚙️ 설정"/>
-            </ButtonHoverScale>
+            </ButtonHoverScale> */}
             <ButtonHoverScale>
-                <Text size="0.8" content="▷ 다음"/>
+                <Text
+                size="0.8"
+                content="▷ 다음"
+                onClick={next}
+                />
             </ButtonHoverScale>
         </Row>
 }

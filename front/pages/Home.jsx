@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Column, Size, Space, ButtonStyle, Center} from '../components/styles/common/common';
 import {Text} from '../components/atoms/bone/text';
@@ -6,12 +6,9 @@ import {
   TypingAnimation, 
   ButtonHoverAnimation,
 } from '../components/styles/animation/animation';
-// const {ipcRenderer} = window.require('electron');
-import {sendPopup} from '../hooks/usePopup';
-
-// ipcRenderer.on('selected',(res)=>console.log(res));
 
 function home(){
+
   return (
     <Size height="100vh">
           <Column align="center" justify="center">
@@ -34,9 +31,6 @@ function home(){
             </Size>
             <Space margin="0.5">
               <Text size="0.8" content="@created by 다빈치"/>
-              <div onClick={
-              sendPopup({})
-              }>HELLO</div>
             </Space>
           </Column>
         </Size>

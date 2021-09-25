@@ -2,11 +2,11 @@
 
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import { Column } from "../../../styles/common/common";
+import { Column } from "../../styles/common/common";
 // import styles from './calendar.module.scss';
-import Box from '../../bone/box';
-import {HoverButton} from "../../bone/Button/button";
-import { Text } from "../../bone/text";
+import Box from '../bone/box';
+import {HoverButton} from "../bone/Button/button";
+import { Text } from "../bone/text";
 
 function Calendar(props){
     const {getDay} = props;

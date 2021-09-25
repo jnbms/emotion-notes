@@ -4,7 +4,10 @@ import styled from "styled-components";
 // MIXIN
 const height = props => ({height:props.height});
 const width = props => ({width:props.width});
-
+const Size = styled.div`
+    ${height}
+    ${width}
+`
 // EXTENDS
 const contain = styled.div`
     height: ${props => !props.height ? "100%" : props.height};
@@ -23,11 +26,6 @@ const Row = styled(contain)`
     justify-content: ${props => props.justify};
     align-items: ${props => props.align};
     gap: ${props => props.gap}em;
-`
-
-const Size = styled.div`
-    ${height}
-    ${width}
 `
 
 const TextStyle = styled.div`

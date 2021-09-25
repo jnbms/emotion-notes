@@ -35,25 +35,15 @@ app.on('ready',()=>{
 
     // 송신 - BACKEND CONSOLE
     ipcMain.on('sendPopup',(event,message)=>{
-        dialog.showMessageBox(
-            // options
-            {
-            type: "question",
-            title: message.title,
-            detail: message.detail,
-            buttons: message.buttons,
-            defaultId: 0,
-            cancelId: 1
-            })
-            .then((res)=>{
-                //확인 : 0, 취소 : 1
-                event.sender.send('receivePopup',res.response);
-            }
-    )
-    // new Notification({title:"JUNE IS",body:"SO SEXY"}).show();
-    });
+    dialog.showMessageBox({
+    type: "question",
+    title: message.title,
+    detail: message.detail,
+    buttons: message.buttons,
+    })
+    .then((res)=>{
+        event.sender.send('receivePopup',res.response);
+    })});
 });
-// app.on('activate',()=>{});
-// window.loadFile('../dist/index.html');
-app.on('window-all-closed',()=>{app.quit();});
 
+app.on('window-all-closed',()=>{app.quit()});

@@ -21,12 +21,12 @@ const TextAreaStyle = styled.textarea`
     /* max-height: 30%; */
 
     // clickAnimation - 분리하도록..
-        box-shadow: 4px 4px rgb(0, 0, 0, 0.125);
+        /* box-shadow: 4px 4px rgb(0, 0, 0, 0.125);
         transform:translate(-4px,-4px);
         &:active{
             box-shadow: 0px 0px rgb(0, 0, 0, 0.125);
             transform: translate(0px,0px);
-        }
+        } */
 `
 
 
@@ -44,7 +44,6 @@ function TextArea(props){
     const autoResize = (e) => {
         e.target.style.height = 'auto';
         e.target.style.height = e.target.scrollHeight + 'px';
-        // console.log(e.target.scrollHeight);
     }
     return (
             <Column style={{gap:4}}>
