@@ -17,6 +17,9 @@ module.exports = {
         // 별명 경로 설정
         alias: {
             resource: path.resolve('./resource'),
+            pages: path.resolve('./front/pages'),
+            components: path.resolve('./front/components'),
+            hooks: path.resolve('./front/hooks'),
         }
     },
     module: {

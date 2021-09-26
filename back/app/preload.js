@@ -1,4 +1,4 @@
-console.log("preload is running.");
+
 // import '../data/menu';
 
 
@@ -10,14 +10,17 @@ console.log("preload is running.");
 // )
 // 콘텍스트 격라 사용하지 않을 경우
 
-let column = [{title:"",discription:""}];
-
+let column = [];
 window.API = {
-    DB : {
+    page : {
         menu : 
         {
             create: (arg,num) => column[num] = arg,
             read: (num) => column[num],
+            readAll: () => column,
+            upload: () => {
+
+            }
         }
     }
 }

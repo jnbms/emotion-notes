@@ -18,7 +18,7 @@ const TextAreaStyle = styled.textarea`
     /* border: 1px solid rgb(80, 80, 80); */
     /* font-family: happy; */
     /* font-size: 24px; */
-    /* max-height: 30%; */
+    min-height: 30vh;
 
     // clickAnimation - 분리하도록..
         /* box-shadow: 4px 4px rgb(0, 0, 0, 0.125);
@@ -46,33 +46,29 @@ function TextArea(props){
         e.target.style.height = e.target.scrollHeight + 'px';
     }
     return (
-            <Column style={{gap:4}}>
-                        {/* ATOM1 */}
-                        <Space margin="0.2"/>
-                            <Text size="1" content={question}/>
-                        <Space margin="0.2">
-                            <Text size="0.8" content={description}/>
-                        </Space>
-
-
-                        {/* ATOM2 */}
-                        <TextAreaStyle
-                            spellCheck="false"
-                            type="text"
-                            placeholder="여기에 입력하세요."
-                            {...text}
-                            onChangeCapture={autoResize}
-                        />
-
-                    {/* ATOM3 */}
-                    <Size height="1em">
-                        <Row style={{gap:40}}>
-                            <Text content={"공백 포함 : " + textSize + "자"}/>
-                            <Text content={"공백 제외 : " + onlyTextSize + "자"}/>
-                        </Row>
-                    </Size>
-
-                {/* <hr width="100%"/> */}
+            <Column gap="0.2">
+                    {/* ATOM1 */}
+                    <Space margin="0.2"/>
+                        <Text size="1" content={question}/>
+                    <Space margin="0.2">
+                        <Text size="0.8" content={description}/>
+                    </Space>
+                    {/* ATOM2 */}
+                    <TextAreaStyle
+                        spellCheck="false"
+                        type="text"
+                        placeholder="여기에 입력하세요."
+                        {...text}
+                        onChangeCapture={autoResize}
+                    />
+                {/* ATOM3 */}
+                <Size height="1em">
+                    <Row gap="3">
+                        <Text content={"공백 포함 : " + textSize + "자"}/>
+                        <Text content={"공백 제외 : " + onlyTextSize + "자"}/>
+                    </Row>
+                </Size>
+            {/* <hr width="100%"/> */}
             </Column>   
     );
 }

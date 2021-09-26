@@ -1,7 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 import {FontSyles} from './common/system';
 
-const globalColor = "#333333";
+const globalColor = "#555555";
 
 const GlobalStyle = createGlobalStyle`
     ${FontSyles}
@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     textarea{
         resize: none;
         outline: none;
+        border: 1px solid;
         font-family: basic;
         font-size: 24px;
 

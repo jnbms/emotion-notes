@@ -44,11 +44,11 @@ function create(){
         },
     ];
 
-    return <Size height="100vh">
+    return <Size>
         <Column align="center">
             <Size width="80%">
-                    <Column justify="center" align="center" gap="2.5">
-                        <Space margin="0"/>
+                    <Column gap="2">
+                        {/* <Space margin="0"/> */}
                         <TextArea question={waterTap[0].question} description={waterTap[0].description}/>
                         <TextArea question={waterTap[1].question} description={waterTap[1].description}/>
                         <TextArea question={waterTap[2].question} description={waterTap[2].description}/>
@@ -56,9 +56,9 @@ function create(){
                         <TextArea question={waterTap[4].question} description={waterTap[4].description}/>
                         <Space margin="0"/>
                     </Column>
-                <SettingBar prevUrl="/write/read" nextUrl=""/>
             </Size>
         </Column>
+        <SettingBar prevUrl="/write/read" nextUrl=""/>
     </Size>
 }
 export default create;
