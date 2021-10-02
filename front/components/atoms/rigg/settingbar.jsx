@@ -6,13 +6,13 @@ import { ButtonHoverScale, SettingBarPosition } from "../../styles/animation/ani
 import {Size, Row} from "../../styles/common/common";
 
 function SettingBar(props){
-    const {prevUrl, nextUrl} = props;
+    const {prevUrl, nextUrl, settingUrl} = props;
     return (
     <SettingBarPosition>
     <Link to={prevUrl}><HoverScaleText size="0.8" content="◁ 이전"/></Link>
     <Link to={nextUrl}><HoverScaleText size="0.8" content="▷ 다음"/></Link>
     <HoverScaleText size="0.8" content="💾 저장"/>
-    <HoverScaleText size="0.8" content="⚙️ 설정"/>
+    <Link to={settingUrl}><HoverScaleText size="0.8" content="⚙️ 설정"/></Link>
     </SettingBarPosition>
     );
 }

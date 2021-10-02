@@ -40,7 +40,6 @@ function create(){
                 "스스로 답을 해나가다보면 자신의 마음을 더 깊이 이해할 수 있게 될 겂니다."
                 + " 또 다시 그런 상황이 발생했을 때 어떻게 대처할 것인지 여러분들만의 행동 지침을 만들어보세요."
                 + " 지금 이 상황에서 어떻게 행동하는 것이 최선인지 스스로 답을 구해보시기 바랍니다."
-                
         },
     ];
 
@@ -58,7 +57,7 @@ function create(){
                     </Column>
             </Size>
         </Column>
-        <SettingBar prevUrl="/write/read" nextUrl=""/>
+        <SettingBar prevUrl="/write/read"/>
     </Size>
 }
 export default create;

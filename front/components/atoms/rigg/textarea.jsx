@@ -18,7 +18,7 @@ const TextAreaStyle = styled.textarea`
     /* border: 1px solid rgb(80, 80, 80); */
     /* font-family: happy; */
     /* font-size: 24px; */
-    min-height: 30vh;
+    max-height: 100vh;
 
     // clickAnimation - 분리하도록..
         /* box-shadow: 4px 4px rgb(0, 0, 0, 0.125);

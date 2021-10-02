@@ -1,29 +1,43 @@
+// const db = require('../data/models').sequelize;
+// db.sync()
+// .then(() => {
+//     console.log('✓ DB connection success.');
+//     console.log('  Press CTRL-C to stop\n');
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     console.log('✗ DB connection error. Please make sure DB is running.')
+//     process.exit();
+//   });
 
-// import '../data/menu';
 
 
-// 콘텍스트 격리 사용의 경우
-// contextBridge.exposeInMainWorld(
-//     'API',{
-//         addTable: (id,name) => addTable(id,name),
-//     }
-// )
-// 콘텍스트 격라 사용하지 않을 경우
-
-let column = [];
+let temp = [];
 window.API = {
-    page : {
-        menu : 
-        {
-            create: (arg,num) => column[num] = arg,
-            read: (num) => column[num],
-            readAll: () => column,
+        menu: {
+            create: (arg,num) => temp[num] = arg,
+            read: (num) => temp[num],
+            readAll: () => temp,
             upload: () => {
-
             }
-        }
+        },
+        // db: {
+        //     list: {
+        //         read: (id, attribute) => db.models.List.findOne({
+        //             raw: true,
+        //             attribute: [attribute],
+        //             where: {id: id}
+        //         }).then(result => console.log(result[attribute])),
+        //     },
+            // history: {
+            //     create: ,
+            //     read: ,
+            //     update: ,
+            //     delete: ,
+            // }
+        // }
     }
-}
-window.data = {
-    list : {},
-}
+// const read = db.models.List.findAll().then(result=> JSON.stringify(result[0].title)).then(data => {return data});
+// let data = await read;
+// console.log(data)
+

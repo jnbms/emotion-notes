@@ -19,7 +19,7 @@ function home(){
               </TypingAnimation>
             </Space>
             <Size height="1.5em" width="3em">
-              <Link to='/menu/read'>
+              <Link to='/write/read'>
                 <ButtonHoverAnimation>
                   <ButtonStyle border="none">
                     <Center>

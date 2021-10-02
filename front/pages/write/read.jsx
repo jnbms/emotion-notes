@@ -11,7 +11,6 @@ import CreateContent from "../../components/atoms/rigg/createContent";
 
 function read(){
     const [selectedDay,GetDay] = useState({year: 0, month: 0, day: 0});
-    
     return (
         <Size height="100vh">
             <Center>
@@ -29,7 +28,7 @@ function read(){
                                 <Size>
                                     <Column justify="center" gap="1">
                                         <Text content={selectedDay.month +"월 " + selectedDay.day + "일 LIST"}/>
-                                        <WritedContent textSize="236" spaceSize="983"/>
+                                        {/* <WritedContent textSize="236" spaceSize="983"/> */}
                                         <CreateContent/>
                                     </Column>
                                 </Size>
@@ -38,7 +37,11 @@ function read(){
 
                     </Row>
                 </Size>
-                <SettingBar prevUrl="/menu/read" nextUrl=""/>
+                <SettingBar
+                    prevUrl="/"
+                    nextUrl="/write/create"
+                    settingUrl="/write/setting"
+                />
             </Center>
         </Size>
     );
