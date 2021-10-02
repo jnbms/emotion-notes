@@ -10,6 +10,6 @@ const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.list = require('./list')(sequelize,Sequelize);
-// db.history = require('./history')(sequelize,Sequelize);
+db.history = require('./history')(sequelize,Sequelize);
 module.exports = db;
 

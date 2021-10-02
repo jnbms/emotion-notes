@@ -1,21 +1,8 @@
 const path = require('path');
 const {app, BrowserWindow, dialog, globalShortcut, ipcMain} = require('electron');
-// require('electron-reload')(__dirname,{
-//     electron: path.join(__driname,'node_modules','.bin','electron')
-// })
+const db = require('../data/models');
 let window;
 app.on('ready',()=>{
-    ipcMain.on('sendPopup',(event,message)=>{
-        dialog.showMessageBox({
-        type: "question",
-        title: message.title,
-        detail: message.detail,
-        buttons: message.buttons,
-        })
-        .then((res)=>{
-        event.sender.send('receivePopup',res.response);
-        })});
-
     window = new BrowserWindow({
         width: 1200, height: 600,
         autoHideMenuBar: true,
@@ -31,13 +18,39 @@ app.on('ready',()=>{
         }});
     // window.webContents.openDevTools(); //개발자 도구 창 실행
     window.loadURL('http://localhost:3000');
-    // 웹팩으로 완성된 로컬 파일도 Database 정상 작동
-    // window.loadURL(path.join(__dirname,'../dist/index.html'));
-    // webContents.openDevTools();
-    // 단축키 설정
     globalShortcut.register('f5',()=>{
         window.reload();
-    })
-    // 송신 - BACKEND CONSOLE
+    });
 });
 app.on('window-all-closed',()=>{app.quit()});
+
+// 송신 - BACKEND CONSOLE
+ipcMain.on('sendPopup',(event,message)=>{
+    dialog.showMessageBox({
+    type: "question",
+    title: message.title,
+    detail: message.detail,
+    buttons: message.buttons,
+    })
+    .then((res)=>{
+    event.sender.send('receivePopup',res.response);
+    })
+    .catch(err => console.error(err));
+});
+
+ipcMain.on("dataReq",(res,reqValues)=>{
+    const {tableName, id} = reqValues;
+    db[tableName].findOne({
+        raw: true,
+        where: {id: id}
+        })
+        // .then(resolve => {return resolve[attribute]});
+        .then(resolve => res.sender.send('dataRes',resolve))
+    // console.log(message);
+})
+ipcMain.on("dataReqs",(res,reqValues)=>{
+    const {tableName} = reqValues;
+    db[tableName].findAll({raw: true})
+    // .then(resolve => res.sender.send('detaRes',resolve));
+    .then(resolve => res.sender.send('dataRes',resolve));
+})
