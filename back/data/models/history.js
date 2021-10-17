@@ -1,11 +1,13 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
     const History = sequelize.define('History',{
-        1: DataTypes.STRING,
-        2: DataTypes.STRING,
-        3: DataTypes.STRING,
-        4: DataTypes.STRING,
-        5: DataTypes.STRING,
+        text1: DataTypes.STRING,
+        text2: DataTypes.STRING,
+        text3: DataTypes.STRING,
+        text4: DataTypes.STRING,
+        text5: DataTypes.STRING,
+        textSize: DataTypes.INTEGER,
+        spaceSize: DataTypes.INTEGER,
     },{ freezeTableName: true, })
     return History;
 }

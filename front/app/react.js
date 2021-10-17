@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 // 웹팩의 XMR 리로드 기능 시 일렉트론에서 연결이 끊기는 문제 발생
 // import {} from 'react-hot-loader';
 import Router from './router';
-import GlobalStyle from '../components/styles/GlobalStyle';
+import GlobalStyle from 'components/styles/GlobalStyle';
+import ContextProvider from '../context';
+
 
 export default function render(){
 ReactDOM.render(
     <Fragment>
         <GlobalStyle/>
-        <Router/>
+        <ContextProvider>
+            <Router/>
+        </ContextProvider>
     </Fragment>
    ,
     document.getElementById('root')

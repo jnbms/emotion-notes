@@ -5,7 +5,7 @@ import {
     ButtonHoverTransition,
     TextHoverColor,
 } from "../../styles/animation/animation";
-import usePopup from '../../../hooks/usePopup';
+import {usePopup} from "hooks";
 
 function WritedContent(props){
     const {textSize, spaceSize} = props;

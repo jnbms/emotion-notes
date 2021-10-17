@@ -38,19 +38,22 @@ ipcMain.on('sendPopup',(event,message)=>{
     .catch(err => console.error(err));
 });
 
-ipcMain.on("dataReq",(res,reqValues)=>{
-    const {tableName, id} = reqValues;
+ipcMain.on("dataReq",(res,props)=>{
+    const {tableName, id} = props;
     db[tableName].findOne({
         raw: true,
         where: {id: id}
-        })
-        // .then(resolve => {return resolve[attribute]});
-        .then(resolve => res.sender.send('dataRes',resolve))
-    // console.log(message);
+    })
+    .then(result => res.sender.send('dataRes',result))
 })
-ipcMain.on("dataReqs",(res,reqValues)=>{
-    const {tableName} = reqValues;
+ipcMain.on("dataReqs",(res,props)=>{
+    const {tableName} = props;
     db[tableName].findAll({raw: true})
-    // .then(resolve => res.sender.send('detaRes',resolve));
-    .then(resolve => res.sender.send('dataRes',resolve));
+    .then(result => res.sender.send('dataRes',result));
+})
+
+ipcMain.on("createData",(res,req)=>{
+    const {tableName,arg} = req;
+    db[tableName].create(arg)
+    .then(result => res.sender.send('dataRes',result))
 })

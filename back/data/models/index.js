@@ -13,3 +13,6 @@ db.list = require('./list')(sequelize,Sequelize);
 db.history = require('./history')(sequelize,Sequelize);
 module.exports = db;
 
+// db.sequelize.sync()
+//   .then(() => console.log("DB is connect"))
+//   .catch(err => console.error(err))

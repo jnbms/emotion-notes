@@ -28,7 +28,7 @@ function read(){
                                 <Size>
                                     <Column justify="center" gap="1">
                                         <Text content={selectedDay.month +"월 " + selectedDay.day + "일 LIST"}/>
-                                        {/* <WritedContent textSize="236" spaceSize="983"/> */}
+                                        <WritedContent textSize="236" spaceSize="983"/>
                                         <CreateContent/>
                                     </Column>
                                 </Size>

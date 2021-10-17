@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 const {ipcRenderer} = window.require('electron');
 
-function usePopup(option,initalValue = null,action){
+function usePopup(option,initalValue = null,action = function(){}){
     const [value,setValue] = useState(initalValue);
     const open = () => {
         const {title, detail, buttons} = option;

@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect,useContext} from "react";
 // import styles from './input.module.scss';
 import {Column, Row, Space, Button, Size} from '../../styles/common/common';
 import {Text} from '../bone/text';
 import styled from "styled-components";
-import useInput from "../../../hooks/useInput";
-// 
+import useInput from "hooks/useInput";
+//
+import { context } from "../../../context";
 
 
 // onChangeCapture - 캡처링 : 두 함수가 하나의 이벤트에 등록될 경우,
@@ -19,24 +20,25 @@ const TextAreaStyle = styled.textarea`
     /* font-family: happy; */
     /* font-size: 24px; */
     max-height: 100vh;
-
-    // clickAnimation - 분리하도록..
-        /* box-shadow: 4px 4px rgb(0, 0, 0, 0.125);
-        transform:translate(-4px,-4px);
-        &:active{
-            box-shadow: 0px 0px rgb(0, 0, 0, 0.125);
-            transform: translate(0px,0px);
-        } */
 `
 
 
 function TextArea(props){
+    // emitter
+    const {emitter} = props;
+    const contextValue = useContext(context);
+    useEffect(() => {
+        contextValue.pushValue(text.value);
+        contextValue.pushTextSize(textSize);
+        contextValue.pushOnlyTextSize(onlyTextSize);
+        // contextValue.setOnlyTextSize(contextValue.onlyTextSize + onlyTextSize);
+    }
+    ,[emitter])
     // atom 1
     const text = useInput("");
     const textSize = text.value.length;
     const onlyTextSize = text.value.replace(/\s/g,'').length;
     // const whiteSpaceSize = textSize - onlyTextSize;
-
     // atom 2
     const {question, description}  = props;
     

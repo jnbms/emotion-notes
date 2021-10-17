@@ -7,11 +7,12 @@ import {Size, Row} from "../../styles/common/common";
 
 function SettingBar(props){
     const {prevUrl, nextUrl, saveUrl, settingUrl} = props;
+    const {createData} = props;
     return (
     <SettingBarPosition>
     <Link to={prevUrl? prevUrl: "#"}><HoverScaleText size="0.8" content="◁ 이전"/></Link>
     <Link to={nextUrl? nextUrl: "#"}><HoverScaleText size="0.8" content="▷ 다음"/></Link>
-    <Link to={saveUrl? saveUrl: "#"}><HoverScaleText size="0.8" content="💾 저장"/></Link>
+    <Link to={saveUrl? saveUrl: "#"}><HoverScaleText size="0.8" content="💾 저장" onClick={createData}/></Link>
     <Link to={settingUrl? settingUrl: "#"}><HoverScaleText size="0.8" content="⚙️ 설정"/></Link>
     </SettingBarPosition>
     );
