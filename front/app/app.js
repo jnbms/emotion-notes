@@ -7,7 +7,7 @@ import GlobalStyle from 'components/styles/GlobalStyle';
 import ContextProvider from '../context';
 
 
-export default function render(){
+export default function App(){
 ReactDOM.render(
     <Fragment>
         <GlobalStyle/>
@@ -18,7 +18,7 @@ ReactDOM.render(
    ,
     document.getElementById('root')
 )}
-render();
+App();
 
 // .router 안에서 react의 리렌더링 기능이 작동하면, 웹팩의 HMR(Hot reload)가 서버를 끄지 않고 render()함수를 재실행 한다.
 if(module.hot){

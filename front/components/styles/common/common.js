@@ -45,7 +45,9 @@ const Space = styled.div`
 
 const Center = styled.div`
     height: 100%; width: 100%;
-    display: grid; place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 // 나중에 레이아웃/수치 관련을 제외한 컴포넌트 관련 값은 JSX 파일로 리팩토링하도록

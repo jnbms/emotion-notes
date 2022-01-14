@@ -4,7 +4,7 @@ const port = 3000;
 
 module.exports = {
     mode: 'development',
-    entry: './front/app/react.js',
+    entry: './front/app/app.js',
     output: {
         path: path.join(__dirname,'./dist'),
         filename: 'bundle.js',

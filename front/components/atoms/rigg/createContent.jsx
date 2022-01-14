@@ -7,7 +7,7 @@ import { Text } from '../bone/text';
 function CreateContent(){
 
     return <Size>
-    <Link to="/write/create">
+    <Link to="/write/create/9">
     <ButtonHoverTransition>
         <ButtonStyle border="dashed">
             <Space padding="0.5">

@@ -8,9 +8,9 @@ import {
 import {usePopup} from "hooks";
 
 function WritedContent(props){
-    const {textSize, spaceSize} = props;
+    const {textSize, spaceSize, onClick} = props;
     const popup = usePopup({title:"DELETE",detail:"삭제할까요?",buttons:["확인","취소"]})
-    return <Size>
+    return <Size onClick={onClick}>
     <ButtonHoverTransition>
         <ButtonStyle border="solid">
             <Space padding="0.3">
@@ -21,7 +21,10 @@ function WritedContent(props){
                         <Text
                             size="0.5"
                             content="DELETE"
-                            onClick={popup.open}    
+                            onClick={(e)=>{
+                            e.stopPropagation();
+                            popup.open();
+                            }}
                         />
                     </TextHoverColor>
                 </Row>

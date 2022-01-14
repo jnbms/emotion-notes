@@ -1,6 +1,4 @@
 import React, {createContext, useState, useEffect} from "react";
-const {ipcRenderer} = window.require('electron');
-
 export const context = createContext();
 
 const ContextProvider = (props) => {
@@ -18,9 +16,7 @@ const ContextProvider = (props) => {
 
     useEffect(()=>{
         // if(save){
-        console.log(value)
-        console.log(textSize);
-        console.log(onlyTextSize);
+        console.log("value is changed");
         // setSave(false);
         // }
     }

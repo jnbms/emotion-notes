@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Column } from "../../styles/common/common";
 // import styles from './calendar.module.scss';
 import Box from '../bone/box';
-import {HoverButton} from "../bone/Button/button";
+import {HoverButton} from "../bone/button";
 import { Text } from "../bone/text";
 
 function Calendar(props){
@@ -22,7 +22,7 @@ function Calendar(props){
     const fistDay = (ofMonth) => new Date(year,(ofMonth - 1),1).getDay();
     const lastDay = (ofMonth) => new Date(year,ofMonth,0).getDate();
     const dates = (ofMonth) => Array(lastDay(ofMonth)).fill().map((element,index)=>index + 1);
-    const emtyBoxNum = (ofMonth) => Array(fistDay(ofMonth)).fill().map((element,index)=>index + 1);
+    const emtyBoxes = (ofMonth) => Array(fistDay(ofMonth)).fill().map((element,index)=>index + 1);
 
     const [month, setMonth] = useState(thisMonth);
     const [year, setYear] = useState(thisYear);
@@ -37,12 +37,12 @@ function Calendar(props){
         <Column jutify="center" gap="0.2">
             <Line>
                 <HoverButton content="◁" hoverColor="blue" onClick={prevMonth}/>
-                <Text content={`${month}월`}/>
+                    <Text content={`${month}월`}/>
                 <HoverButton content="▷" hoverColor="blue" onClick={nextMonth}/>
             </Line>
             <Table>
                 {weeks.map((week)=>{return <Box key={week} color="week">{week}</Box>})}
-                {emtyBoxNum(month).map((num)=>{return <div key={num}></div>})}
+                {emtyBoxes(month).map((num)=>{return <div key={num}></div>})}
                 {dates(month).map((day)=>{
                     return day == thisDate && month == thisMonth && year == thisYear ? 
                     <Box key={day} color="today" onClick={()=>setGetDay(year,month,day)}>{day}</Box> :

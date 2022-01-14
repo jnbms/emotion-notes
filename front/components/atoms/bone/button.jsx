@@ -1,7 +1,7 @@
 import React from "react";
-import {Text} from "../text";
-import {ButtonStyle} from '../../../styles/common/common';
-import {TextHoverColor} from "../../../styles/animation/animation";
+import {Text} from "./text";
+import {ButtonStyle} from '../../styles/common/common';
+import {TextHoverColor} from "../../styles/animation/animation";
 
 const Button = (props) => {
     const {border, content} = props;

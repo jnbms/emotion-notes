@@ -57,7 +57,7 @@ export default function WriteSetting() {
         <Size height="100vh">
            <Center>
                 <Size width="50%">
-                     <Column align="center" justify="center" gap="1">
+                    <Column align="center" justify="center" gap="1">
                          
                         <Text size="1.1" content={titleName}/>
                         <Input maxLength="50" {...title}/>
@@ -65,11 +65,11 @@ export default function WriteSetting() {
                         <Text size="1.1" content={subtitleName}/>
                         <Input height="5" maxLength="150" {...subtitle}></Input>
                        
-                    <Size width="100%">
-                        <SettingBar2 prev={prevPage} next={nextPage}/>
-                    </Size>
-                </Column>
-              </Size>
+                        <Size width="100%">
+                            <SettingBar2 prev={prevPage} next={nextPage}/>
+                        </Size>
+                    </Column>
+                </Size>
             </Center>
         </Size>
     );
