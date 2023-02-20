@@ -4,6 +4,7 @@ class Counter {
     Store;
     count = 0;
 
+    // mobx는 arrow funtion이 가능하지 않습니다. 
     increment() { 
         this.count += 1;
     }

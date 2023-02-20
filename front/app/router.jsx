@@ -1,5 +1,7 @@
 import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+
+// reaftor: 페이지들이 묶여서 import 되지 않은 점 개선하기
 import Home from "pages/Home";
 import read from "pages/menu/read";
 import create from "pages/menu/create";
