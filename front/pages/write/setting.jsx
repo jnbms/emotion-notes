@@ -55,16 +55,15 @@ export default function WriteSetting() {
 
     return (
         <Size height="100vh">
-           <Center>
+            <Center>
                 <Size width="50%">
                     <Column align="center" justify="center" gap="1">
-                         
+
                         <Text size="1.1" content={titleName}/>
                         <Input maxLength="50" {...title}/>
 
                         <Text size="1.1" content={subtitleName}/>
                         <Input height="5" maxLength="150" {...subtitle}></Input>
-                       
                         <Size width="100%">
                             <SettingBar2 prev={prevPage} next={nextPage}/>
                         </Size>

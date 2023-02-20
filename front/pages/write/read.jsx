@@ -10,10 +10,9 @@ import WritedContent from "../../components/atoms/rigg/WritedContent";
 import CreateContent from "../../components/atoms/rigg/createContent";
 const DB = window.API.DB.history;
 
-function read(){
+export default function read(){
     const [selectedDay,GetDay] = useState({year: 0, month: 0, day: 0});
     const [lists, setLists] = useState([{},{},{},{},{}]);
-
     const openList = page => location.href = `/write/create/${page}`;
 
     useEffect(() => {
@@ -49,13 +48,12 @@ function read(){
                 </Size>
                 <SettingBar
                     prevUrl="/"
-                    nextUrl="/write/create"
+                    // nextUrl="/write/create"
                     settingUrl="/write/setting"
                 />
             </Center>
         </Size>
     );
 }
-export default read;
 
 // function Calender

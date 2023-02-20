@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Column, Size, Space, ButtonStyle, Center} from '../components/styles/common/common';
 import {Text} from '../components/atoms/bone/text';
@@ -6,18 +6,24 @@ import {
   TypingAnimation, 
   ButtonHoverAnimation,
 } from '../components/styles/animation/animation';
+import { useStore } from '../mobx/Store';
+import { observer } from 'mobx-react-lite';
 
-function home(){
+
+
+const Home = observer(() => {
   return (
           <Column height="100vh" align="center" justify="center">
             <SubTitle/>
             <Title/>
             <StartButton/>
-            <Footer/>
+            {/* <div>{Counter.count}</div> */}
+            {/* <Footer/> */}
           </Column>
   );
-}
-export default home;
+})
+
+export default Home;
 
 const SubTitle = () => (
   <Text size="1" content="당신을 위한 기적"/>

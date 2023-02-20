@@ -4,7 +4,7 @@ const db = require('../data/models');
 let window;
 app.on('ready',()=>{
     window = new BrowserWindow({
-        width: 1200, height: 600,
+        width: 800, height: 600,
         autoHideMenuBar: true,
         webPreferences: {
             preload: path.join(__dirname,'./preload.js'),
@@ -57,3 +57,5 @@ ipcMain.on("createData",(res,req)=>{
     db[tableName].create(arg)
     .then(result => res.sender.send('dataRes',result))
 })
+
+// console.log("hello")

@@ -6,8 +6,11 @@
     "webpack": "webpack",
     "front": "webpack-dev-server",
     "back": "electron .",
-    "start": "concurrently \"npm run front\" \"npm run back\"",
-    "dev": "electron-webpack dev"
+    "start": "concurrently \"npm run front --hot\" \"npm run back\"",
+    "dev": "electron-webpack dev",
+    "deploy": "electron-builder --mac",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild -w sqlite3 -f"
   },
   "keywords": [],
   "license": "ISC",
@@ -18,21 +21,57 @@
     "@loadable/component": "5.15.0",
     "babel-loader": "8.2.2",
     "concurrently": "6.2.1",
-    "electron": "14.0.1",
     "electron-reload": "2.0.0-alpha.1",
     "electron-webpack": "2.8.2",
     "file-loader": "6.2.0",
     "html-loader": "2.1.2",
     "html-webpack-plugin": "5.3.2",
+    "mobx": "^6.3.12",
+    "mobx-react-lite": "^3.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hot-loader": "^4.13.0",
     "react-router-dom": "5.3.0",
     "sequelize": "6.6.5",
     "source-map-loader": "3.0.0",
-    "sqlite3": "5.0.2",
     "styled-components": "5.3.1",
     "webpack": "5.53.0",
     "webpack-cli": "4.8.0",
     "webpack-dev-server": "4.2.1"
+  },
+  "devDependencies": {
+    "electron": "14.0.1",
+    "electron-builder": "^22.14.5",
+    "electron-rebuild": "^3.2.7",
+    "sqlite3": "^5.0.2"
+  },
+  "build": {
+    "productName": "NB",
+    "appId": "com.nb.electron",
+    "asar": true,
+    "mac": {
+      "target": "default"
+    },
+    "dmg": {
+      "title": "NB"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "perMachine": true,
+      "language": 1042,
+
+      "shortcutName": "NB",
+      "artifactName": "NB-${version}.${ext}",
+      "uninstallDisplayName": "NB"
+    },
+    "directories": {
+      "buildResources": "./build/",
+      "output": "./dist/"
+    }
   }
 }

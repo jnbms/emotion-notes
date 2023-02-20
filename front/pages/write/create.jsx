@@ -60,15 +60,15 @@ function create(props){
         <Column align="center">
             <Size width="80%">
                 <Column gap="2">
-                   {sequence.map((index,item) => 
-                   <TextArea
-                       key={index}
-                       question={title[item]["title"]}
-                       description={title[item]["subtitle"]}
-                       emitter={emitter}
-                       />
-                   )}
-                   <Space margin="0"/>
+                    {sequence.map((index,item) => 
+                    <TextArea
+                        key={index}
+                        question={title[item]["title"]}
+                        description={title[item]["subtitle"]}
+                        emitter={emitter}
+                        />
+                    )}
+                    <Space margin="0"/>
                 </Column>
             </Size>
             <SettingBar prevUrl="/write/read" saveUrl="#" createData={createData}/>

@@ -6,24 +6,27 @@ import Router from './router';
 import GlobalStyle from 'components/styles/GlobalStyle';
 import ContextProvider from '../context';
 
+import {Store, StoreProvider} from "../mobx/Store";
 
 export default function App(){
 ReactDOM.render(
     <Fragment>
         <GlobalStyle/>
-        <ContextProvider>
-            <Router/>
-        </ContextProvider>
-    </Fragment>
-   ,
+        <StoreProvider value={new Store()}>
+            <ContextProvider>
+                <Router/>
+            {/* <div>????</div> */}
+            </ContextProvider>
+        </StoreProvider>
+    </Fragment>,
     document.getElementById('root')
 )}
-App();
 
+App();
 // .router 안에서 react의 리렌더링 기능이 작동하면, 웹팩의 HMR(Hot reload)가 서버를 끄지 않고 render()함수를 재실행 한다.
-if(module.hot){
+// if(module.hot){
     // module.hot.accept('./router.jsx',() => {
     //     render();
     // })
-    module.hot.accept();
-}
+    // module.hot.accept();
+// }
